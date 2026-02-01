@@ -16,10 +16,12 @@ export default function MovieListItem(props) {
             </div>
             {props.movie.actors && props.movie.actors.length > 0 && (
                 <div>
-                    Actors: {props.movie.actors.map(actor => `${actor.name} ${actor.surname}`).join(', ')}
+                    <strong>Actors</strong>: {props.movie.actors.map(actor => `${actor.name} ${actor.surname}`).join(', ')}
                 </div>
             )}
-            {props.movie.description}
+            <p>
+               {props.movie.description}
+            </p>
         </div>
     );
 }
