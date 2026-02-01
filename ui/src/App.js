@@ -10,9 +10,11 @@ function App() {
     return (
         <Router>
             <div>
-                <nav style={{ padding: '20px', backgroundColor: '#f4f5f6', marginBottom: '20px' }}>
-                    <Link to="/" style={{ marginRight: '20px' }}>Movies</Link>
-                    <Link to="/actors">Actors</Link>
+                <nav style={{ backgroundColor: '#f4f5f6', marginBottom: '20px' }}>
+                    <div className="container" style={{ paddingTop: '20px', paddingBottom: '20px' }}>
+                        <Link to="/" style={{ marginRight: '20px' }}>Movies</Link>
+                        <Link to="/actors">Actors</Link>
+                    </div>
                 </nav>
                 <Routes>
                     <Route path="/" element={<MoviesPage />} />
