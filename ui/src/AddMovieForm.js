@@ -1,4 +1,5 @@
 import {useState} from "react";
+import { toast } from 'react-toastify';
 
 export default function AddMovieForm(props) {
     const [title, setTitle] = useState('');
@@ -10,7 +11,8 @@ export default function AddMovieForm(props) {
         event.preventDefault();
         console.log('AddMovieForm handleSubmit', {title, year, director, description});
         if (title.length < 5) {
-            return alert('Tytuł jest za krótki');
+            toast.warning('Tytuł jest za krótki');
+            return;
         }
         props.onMovieSubmit({title, year, director, description});
         setTitle('');
@@ -38,5 +40,7 @@ export default function AddMovieForm(props) {
             <textarea value={description} onChange={(event) => setDescription(event.target.value)}/>
         </div>
         <button type="submit">Add a movie</button>
+        &nbsp;
+        <button type="button" className="button-outline" onClick={props.onCancel}>Cancel</button>
     </form>;
 }
